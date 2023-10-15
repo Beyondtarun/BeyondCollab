@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receiver Interface</title>
+</head>
+<body>
+  <h2>Receiver Interface</h2>
+  <input type="text" id="roomInput" placeholder="Enter Room ID">
+  <button onclick="joinRoom()">Join Room</button>
+  <br>
+  <h3>Messages:</h3>
+  <ul id="messages"></ul>
+  <h3>Received Files:</h3>
+  <ul id="fileList"></ul>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    function joinRoom() {
+      const room = document.getElementById('roomInput').value;
+      socket.emit('join', room);
+    }
+
+    socket.on('message', (message) => {
+      const ul = document.getElementById('messages');
+      const li = document.createElement('li');
+      li.appendChild(document.createTextNode(message));
+      ul.appendChild(li);
+    });
+
+    socket.on('file', (fileName) => {
+      const ul = document.getElementById('fileList');
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `./uploads/${fileName}`;
+      a.textContent = fileName;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  </script>
+</body>
+</html>

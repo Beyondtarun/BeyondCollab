@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-time File Sharing</title>
+</head>
+<body>
+  <input type="text" id="roomInput" placeholder="Enter Room ID">
+  <button onclick="joinRoom()">Join Room</button>
+  <br>
+  <textarea id="messageInput" placeholder="Enter your message"></textarea>
+  <button onclick="sendMessage()">Send Message</button>
+  <br>
+  <input type="file" id="fileInput">
+  <button onclick="sendFile()">Send File</button>
+  <ul id="messages"></ul>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    function joinRoom() {
+      const room = document.getElementById('roomInput').value;
+      socket.emit('join', room);
+    }
+
+    function sendMessage() {
+      const message = document.getElementById('messageInput').value;
+      const room = document.getElementById('roomInput').value;
+      socket.emit('message', { room, message });
+      document.getElementById('messageInput').value = '';
+    }
+
+    function sendFile() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+      const room = document.getElementById('roomInput').value;
+
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('room', room);
+
+      fetch('/upload', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+      });
+    }
+
+    socket.on('message', (message) => {
+      const ul = document.getElementById('messages');
+      const li = document.createElement('li');
+      li.appendChild(document.createTextNode(message));
+      ul.appendChild(li);
+    });
+
+    socket.on('file', (fileName) => {
+      const ul = document.getElementById('messages');
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `./uploads/${fileName}`;
+      a.textContent = fileName;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  </script>
+</body>
+</html>
