@@ -3,18 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Receiver Interface</title>
-</head>
-<body>
-  <h2>Receiver Interface</h2>
-  <input type="text" id="roomInput" placeholder="Enter Room ID">
-  <button onclick="joinRoom()">Join Room</button>
-  <br>
-  <h3>Messages:</h3>
-  <ul id="messages"></ul>
-  <h3>Received Files:</h3>
-  <ul id="fileList"></ul>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/BCIIT LOGO.png" type="image/x-icon">
 
+  <title>BCIIT</title>
+</head>
+<body style="background-color: #4B9CD3;">
+  <div class="heading" style="background: linear-gradient(to bottom, black,#4B9CD3);">
+    <div>
+     <img src="images/BCIIT LOGO.png" alt="logo" style="width: 170px; height:150px;">
+     <p class="institute">
+       BANARSIDAS CHANDIWALA INSTITUTE OF INFROMATION TECHNOLOGY
+     </p>
+     <p style="font-weight:bold">
+       बनारसीदास चांदीवाला सूचना प्रौद्योगिकी संस्थान
+     </p>
+     </div>
+     <hr style="width: 90%; color:white; font-weight:bold;">
+     <p>File Sharing System</p>
+     <hr style="width: 100%; color:white; font-weight:bold;">
+     <!-- <br /> -->
+   </div>
+  <h1 style="align-self: center">Receiver's Panel</h1>
+  <marquee behavior="" direction=""><span>MINOR PROJECT</span></marquee>
+  <div class="content">
+    <div class="inputs">
+      <h2>Receiver Interface</h2>
+    <input type="text" id="roomInput" placeholder="Enter Room ID">
+    <button onclick="joinRoom()">Join Room</button>
+    </div>
+    <div class="outputs">
+      <br>
+    <h3>Messages:</h3>
+    <ul id="messages"></ul>
+    <h3>Received Files:</h3>
+    <ul id="fileList"></ul>
+    </div>
+    
+    
+  </div>
+  <footer class="footer flex justify_center">
+    <div >
+      <h2>Developed with <span style="color:red">&#10084;</span> by <a href="https://www.linkedin.com/in/beyondtarun/">Tarun.</a></h2>
+    </div>
+  </footer>
   <script src="/socket.io/socket.io.js"></script>
   <script>
     const socket = io();
