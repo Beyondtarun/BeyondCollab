@@ -50,11 +50,12 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
     const socket = io();
-
+    
     function joinRoom() {
       const room = document.getElementById('roomInput').value;
       socket.emit('join', room);
     }
+    
 
     socket.on('message', (message) => {
       const ul = document.getElementById('messages');

@@ -31,18 +31,29 @@ const roomsData = {};
 io.on('connection', (socket) => {
   console.log('a user connected');
 
+ 
   socket.on('join', (room) => {
     socket.join(room);
     // Send stored messages and files to the newly joined user
-    if (roomsData[room]) {
-      roomsData[room].messages.forEach(message => {
-        socket.emit('message', message);
-      });
-      roomsData[room].files.forEach(fileName => {
-        socket.emit('file', fileName);
-      });
-    }
-  });
+  //   if (roomsData[room]) {
+  //     roomsData[room].messages.forEach(message => {
+  //       socket.emit('message', message);
+  //     });
+  //     roomsData[room].files.forEach(fileName => {
+  //       socket.emit('file', fileName);
+  //     });
+  //   }
+  
+  // });
+  if (roomsData[room]) {
+    roomsData[room].messages.forEach(message => {
+      socket.emit('message', message);
+    });
+    roomsData[room].files.forEach(fileName => {
+      io.to(socket.id).emit('file', fileName); // Emit only to the newly joined socket
+    });
+  }
+});
 
   socket.on('message', (data) => {
     io.to(data.room).emit('message', data.message);
@@ -53,8 +64,9 @@ io.on('connection', (socket) => {
     roomsData[data.room].messages.push(data.message);
   });
 
-  socket.on('file', (data) => {
+  socket.on('fileList', (data) => {
     io.to(data.room).emit('file', data.fileName);
+    io.to(data.room).emit('message', `File shared: ${data.fileName}`);
     // Store the file for the room
     if (!roomsData[data.room]) {
       roomsData[data.room] = { messages: [], files: [] };
@@ -62,21 +74,6 @@ io.on('connection', (socket) => {
     roomsData[data.room].files.push(data.fileName);
   });
 
-//   socket.on('disconnect', () => {
-//     // Clear uploaded files when connection is closed
-//     const roomNames = Object.keys(roomsData);
-//     roomNames.forEach(roomName => {
-//       roomsData[roomName].files.forEach(fileName => {
-//         const filePath = path.join(__dirname, 'uploads', fileName);
-//         if (fs.existsSync(filePath)) {
-//           fs.unlinkSync(filePath);
-//         }
-//       });
-//       delete roomsData[roomName];
-//     });
-//     console.log('a user disconnected');
-//   });
-// });
 
 socket.on('disconnect', () => {
   // Clear uploaded files when connection is closed
@@ -98,10 +95,22 @@ socket.on('disconnect', () => {
 });
 
 
+// app.post('/upload', upload.single('file'), (req, res) => {
+//   io.to(req.body.room).emit('file', req.file.filename);
+//   res.send('File uploaded successfully.');
+// });
 app.post('/upload', upload.single('file'), (req, res) => {
-  io.to(req.body.room).emit('file', req.file.filename);
+  const room = req.body.room;
+  const fileName = req.file.filename;
+
+  console.log(`File uploaded to room: ${room}, fileName: ${fileName}`);
+
+  
+  io.to(room).emit('file', fileName);
   res.send('File uploaded successfully.');
+
 });
+
 
 server.listen(3000, () => {
   console.log('Server is running on port 3000');

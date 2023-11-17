@@ -48,9 +48,17 @@
         <input type="file" id="fileInput" />
         <button onclick="sendFile()">Send File</button>
       </div>
-      <div  class="outputs">
+      <!-- <div  class="outputs">
         <ul id="messages"></ul>
+      </div> -->
+      <div class="outputs">
+        <br>
+      <h3>Messages:</h3>
+      <ul id="messages"></ul>
+      <h3>Received Files:</h3>
+      <ul id="fileList"></ul>
       </div>
+  
     </div>
     <footer class="footer flex justify_center">
       <div >
@@ -90,6 +98,7 @@
           .then((data) => {
             console.log(data);
           });
+          alert('file uploaded');
       }
 
       socket.on("message", (message) => {
@@ -100,7 +109,7 @@
       });
 
       socket.on("file", (fileName) => {
-        const ul = document.getElementById("messages");
+        const ul = document.getElementById("fileList");
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.href = `./uploads/${fileName}`;
