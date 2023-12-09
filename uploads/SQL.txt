@@ -1,0 +1,78 @@
+SQL
+
+Abhishek Tyagi10:54
+SELECT d.deptno, d.dname, COUNT(e.empno) AS num_employees FROM dept d JOIN emp e ON d.deptno = e.deptno GROUP BY d.deptno, d.dname
+HAVING COUNT(e.empno) > 3;
+You10:56
+SELECT ENAME FROM EMP WHERE SAL > (SELECT SAL FROM EMP WHERE ENAME = 'CLARK')
+You10:58
+DELETE FROM EMP WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME = 'SMITH');
+You11:00
+ALTER TABLE EMP
+ADD CONSTRAINT PK_EMP PRIMARY KEY (EMPNO);
+You11:02
+ALTER TABLE EMP
+MODIFY ENAME VARCHAR2(10) NOT NULL;
+Abhishek Tyagi11:04
+ALTER TABLE emp
+ADD CONSTRAINT for_key
+FOREIGN KEY (deptno)
+REFERENCES dept(deptno);
+Abhishek Tyagi11:11
+INSERT INTO emp (empno, ename, deptno)
+VALUES (111, 'aaa', 45);
+constraint violation
+Hitesh Walia11:11
+insert into emp (empno, ename,deptno) values( 111 ,'aaa' ,45);
+Vandana Garia11:11
+Insert into dept(deptno) values (45);
+Insert into emp (empno,ename,deptno) values (111,'aaa',45);
+Avinash Ranjan11:12
+INSERT INTO EMP (EMPNO,ENAME,DEPTNO) VALUES(111,'AAA',45);
+
+CONSTRAINT VIOLATION
+Muskan Tyagi11:12
+Constraint violation
+Avinash Ranjan11:14
+INSERTED
+Sushma Bahuguna11:33
+create table emp as select * from scott.emp;
+create table dept as select * from scott.dept;
+select * from emp;
+--Second highest salary
+select max(sal) from emp where sal < (select max(sal) from emp);
+-- Show the details of employee with second highest salary
+select empno,ename,max(sal) from emp where sal < (select max(sal) from emp);
+select * from emp where sal = 
+    (select max(sal) from emp where sal < (select max(sal) from emp))
+
+-- find the dept with more than 3 employees
+select deptno, cou
+-- find the dept with more than 3 employees
+select deptno, count(empno) from emp group by deptno having count(empno) > 3;
+select deptno from emp group by deptno having count(*) > 3;
+
+SELECT d.deptno, d.dname, COUNT(e.empno) AS num_employees FROM 
+    dept d JOIN emp e ON d.deptno = e.deptno 
+    GROUP BY d.deptno, d.dname HAVING COUNT(e.empno) > 3;
+-- find the employees with sal more than salay of CLARK
+SELECT ENAME FROM EMP WHERE SAL > (SELECT SAL FROM EMP WHERE ENAME = 'CLARK')
+
+-- delete all the employees working in dept of Smith
+
+desc emp;
+desc dept;
+ -- define empno as keyfield for emp table and deptno keyfield for dept
+ALTER TABLE EMP ADD CONSTRAINT PK_EMP PRIMARY KEY (EMPNO);
+ALTER TABLE dept ADD CONSTRAINT PK_dept PRIMARY KEY (deptno);
+-- ename - not null
+ALTER TABLE EMP MODIFY ENAME VARCHAR2(10) NOT NULL;
+-- Define deptno of emp table as foreign key
+ALTER TABLE emp ADD CONSTRAINT for_key FOREIGN KEY (deptno) REFERENCES dept(deptno) on delete set null;
+ALTER TABLE e ADD CONSTRAINT for_key1 FOREIGN KEY (deptno) REFERENCES dept(deptno) on delete cascade;
+desc emp;
+desc dept;
+
+--insert - emp- empno 111 ename aaa deptno 45
+INSERT INTO emp (empno, ename, deptno)
+VALUES (113, 'aaa', 47)

@@ -45,17 +45,15 @@
         <button onclick="sendMessage()">Send Message</button>
         <br />
         <bR>
-        <input type="file" id="fileInput" />
+        <input type="file" id="fileInput"/>
         <button onclick="sendFile()">Send File</button>
       </div>
-      <!-- <div  class="outputs">
-        <ul id="messages"></ul>
-      </div> -->
-      <div class="outputs">
+      
+      <div class="outputs" style="color: antiquewhite;">
         <br>
       <h3>Messages:</h3>
       <ul id="messages"></ul>
-      <h3>Received Files:</h3>
+      <h3>Sent Files:</h3>
       <ul id="fileList"></ul>
       </div>
   
@@ -105,14 +103,15 @@
         const ul = document.getElementById("messages");
         const li = document.createElement("li");
         li.appendChild(document.createTextNode(message));
+        
         ul.appendChild(li);
       });
 
       socket.on("file", (fileName) => {
         const ul = document.getElementById("fileList");
         const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = `./uploads/${fileName}`;
+        const a = document.createElement("h2");
+        a.innerHTML = `./uploads/${fileName}`;
         a.textContent = fileName;
         li.appendChild(a);
         ul.appendChild(li);

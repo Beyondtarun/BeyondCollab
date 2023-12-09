@@ -69,7 +69,9 @@
       const li = document.createElement('li');
       const a = document.createElement('a');
       a.href = `./uploads/${fileName}`;
+      a.target='_new';
       a.textContent = fileName;
+      a.download = fileName;
       li.appendChild(a);
       ul.appendChild(li);
     });

@@ -6,6 +6,7 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 
+
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -34,17 +35,7 @@ io.on('connection', (socket) => {
  
   socket.on('join', (room) => {
     socket.join(room);
-    // Send stored messages and files to the newly joined user
-  //   if (roomsData[room]) {
-  //     roomsData[room].messages.forEach(message => {
-  //       socket.emit('message', message);
-  //     });
-  //     roomsData[room].files.forEach(fileName => {
-  //       socket.emit('file', fileName);
-  //     });
-  //   }
-  
-  // });
+    
   if (roomsData[room]) {
     roomsData[room].messages.forEach(message => {
       socket.emit('message', message);
@@ -95,10 +86,7 @@ socket.on('disconnect', () => {
 });
 
 
-// app.post('/upload', upload.single('file'), (req, res) => {
-//   io.to(req.body.room).emit('file', req.file.filename);
-//   res.send('File uploaded successfully.');
-// });
+
 app.post('/upload', upload.single('file'), (req, res) => {
   const room = req.body.room;
   const fileName = req.file.filename;
@@ -110,9 +98,22 @@ app.post('/upload', upload.single('file'), (req, res) => {
   res.send('File uploaded successfully.');
 
 });
+const redirectPage = 'welcome.html'; // Change this to the page you want to open
+const redirectUrl = `http://localhost:3000/${redirectPage}`;
 
 
-server.listen(3000, () => {
+server.listen(3000, async() => {
   console.log('Server is running on port 3000');
+  try {
+    // Use dynamic import to import the 'open' package
+    const open = (await import('open')).default;
+
+    // Open the default web browser with the specified URL
+    await open(redirectUrl);
+
+    console.log(`Visit ${redirectUrl} in your web browser.`);
+  } catch (error) {
+    console.error('Error opening browser:', error);
+  }
 });
 

@@ -20,6 +20,7 @@ body{
     align-items: center;
     justify-content: space-evenly;
     background: linear-gradient(to bottom ,black, #0a2351);
+
 }
 img{
     margin-top: 10px;
@@ -33,7 +34,7 @@ span{
     align-self: center;
 }
 .content{
-    background: rgb(64, 63, 63);
+    background: rgb(1, 108, 154);
     width: 70vw;
     display: flex;
     /* flex-direction: column; */
@@ -45,19 +46,24 @@ span{
     border-radius: 10px;
     overflow: hidden;
     padding: 20px;
+    
 }
 .textarea{
     height: 100px;
     width: 300px;
     margin-top: 20px;
+    background: hsl(0, 100%, 1%);
+    color: aliceblue;
 }
 input{
     height: 25px;
 }
 button{
-    height: 30px;
+    /* height: 30px; */
     font-size: 15px;
-    padding: 5px;
+    padding: 10px;
+    background: #122348;
+    color: white;
 
 }
 .flex{
@@ -96,7 +102,71 @@ input:focus{
     width: 50%;
     min-height: 40vh;
     padding: 10px;
-    background: rgb(146, 145, 145);
+    background: rgb(1, 48, 90);
     border-radius: 10px;
-    color: #000;
+    color: #fafafa;
 }
+h3{
+    color: aliceblue;
+}
+.outputs a{
+    color: antiquewhite;
+}
+.welcomeScreen{
+    min-height: 90vh;
+    min-width: 90vw;
+    padding: 10px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: #000; */
+    background-image: linear-gradient(to bottom, rgb(58, 25, 92), rgb(10, 10, 10) );
+}
+.border{
+    border: 2px solid white;
+}
+.header{
+    min-height: 50px;
+    min-width: 90vw;
+    margin-top: 0%;
+    align-items: center;
+}
+.redirect{
+    min-width: 90vw;
+    min-height: 250px;
+    justify-content: space-evenly;
+
+}
+.flex{
+    display: flex;
+}
+.column{
+    flex-direction: column;
+}
+.subRed{
+    justify-content: space-evenly;
+    min-width: 90%;
+    font-size: 50px;
+}
+.typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
