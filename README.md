@@ -39,6 +39,12 @@ By developing this communication platform, we aim to significantly improve the e
 
 <h2>Snap Shots</h2>
 <img src="https://github.com/Beyondtarun/BeyondCollab/assets/113584909/e83b58ac-7e86-40bc-bd47-d44baa6935d2"></img>
+<img src="https://github.com/Beyondtarun/BeyondCollab/assets/113584909/cd042a03-b2d3-4fe1-924a-bb925312a28f"></img>
+<img src="https://github.com/Beyondtarun/BeyondCollab/assets/113584909/d760695b-c50a-44e0-9c97-0cc10e629a15"></img>
+<img src="https://github.com/Beyondtarun/BeyondCollab/assets/113584909/ef7ef59c-e3b5-4ab6-8780-8176d3ff35d5"></img>
+<img src="https://github.com/Beyondtarun/BeyondCollab/assets/113584909/ea4e149a-8284-4493-80d7-1c854ee1b21b"></img>
+
+
 
 
 
