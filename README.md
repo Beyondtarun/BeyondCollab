@@ -38,6 +38,7 @@ By developing this communication platform, we aim to significantly improve the e
 </ol>
 
 <h2>Snap Shots</h2>
+<img src="https://github.com/Beyondtarun/BeyondCollab/assets/113584909/e83b58ac-7e86-40bc-bd47-d44baa6935d2"></img>
 
-!(https://github.com/Beyondtarun/BeyondCollab/assets/113584909/e83b58ac-7e86-40bc-bd47-d44baa6935d2)
+
 
