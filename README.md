@@ -10,7 +10,8 @@ Our academic project aims to create an efficient and seamless information-sharin
 
 <b>Multimedia Sharing:</b> In addition to text-based communication, the platform supports the seamless sharing of multimedia content. Teachers can effortlessly distribute instructional materials, while students can submit assignments and projects with ease.
 
-<b>File Management:</b> A sophisticated file management system is integrated to organize and store shared documents. This feature ensures that both teachers and students have easy access to relevant materials, promoting a structured and organized learning experience.
+<b>File Management:</b> A sophisticated file management system
+ is integrated to organize and store shared documents. This feature ensures that both teachers and students have easy access to relevant materials, promoting a structured and organized learning experience.
 
 <b>Interactive Collaboration:</b> The platform fosters interactive collaboration through features such as live discussions, group forums, and virtual classrooms. This encourages active participation and engagement among students and facilitates a more dynamic exchange of ideas.
 
@@ -35,5 +36,10 @@ By developing this communication platform, we aim to significantly improve the e
   <li>node index.js</li>
 </ol>
 
-<p></p>
+<h2>Snap Shots</h2>
+![Screenshot (397)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/af60e50d-090b-49d7-94e7-b1988ae788d0)
+![Screenshot (396)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/050eb593-d866-4dba-9b9a-6b1a07058642)
+![Screenshot (395)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/dd5a64f7-d8ac-4f20-a18b-7f61b4d7819d)
+![Screenshot (394)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/ec674a34-fe80-4829-ad55-e7a9b1aa68bc)
+![Screenshot (393)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/e83b58ac-7e86-40bc-bd47-d44baa6935d2)
 
