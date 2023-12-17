@@ -1,4 +1,4 @@
-//server for collab
+//server for Live Connect
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
@@ -13,7 +13,7 @@ const io = socketIo(server);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Set up storage and upload configuration for multer
+
 const storage = multer.diskStorage({
   destination: './uploads',
   filename: function (req, file, cb) {
@@ -84,24 +84,16 @@ socket.on('disconnect', () => {
   console.log('a user disconnected');
 });
 });
-
-
-
 app.post('/upload', upload.single('file'), (req, res) => {
   const room = req.body.room;
   const fileName = req.file.filename;
-
   console.log(`File uploaded to room: ${room}, fileName: ${fileName}`);
-
-  
   io.to(room).emit('file', fileName);
   res.send('File uploaded successfully.');
 
 });
 const redirectPage = 'welcome.html'; // Change this to the page you want to open
 const redirectUrl = `http://localhost:3000/${redirectPage}`;
-
-
 server.listen(3000, async() => {
   console.log('Server is running on port 3000');
   try {
