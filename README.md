@@ -10,6 +10,7 @@
 </ul>
 <h2>Initialization steps:</h2>
 <ol type="1">
+  <p>After open public folder in code editor open terminal and write all these commands--</p>
   <li>npm init -y</li>
   <li>npm install express socket.io --save</li>
   <li>npm install open --save</li>
