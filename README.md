@@ -1,3 +1,4 @@
+![Screenshot (393)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/b2561f28-76c9-43a2-a4a5-18da5870c724)
 <h1>Live Connect</h1>
 
 <p> Project Overview: Seamless Communication Platform for Educational Environments
@@ -37,9 +38,6 @@ By developing this communication platform, we aim to significantly improve the e
 </ol>
 
 <h2>Snap Shots</h2>
-![Screenshot (397)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/af60e50d-090b-49d7-94e7-b1988ae788d0)
-![Screenshot (396)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/050eb593-d866-4dba-9b9a-6b1a07058642)
-![Screenshot (395)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/dd5a64f7-d8ac-4f20-a18b-7f61b4d7819d)
-![Screenshot (394)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/ec674a34-fe80-4829-ad55-e7a9b1aa68bc)
-![Screenshot (393)](https://github.com/Beyondtarun/BeyondCollab/assets/113584909/e83b58ac-7e86-40bc-bd47-d44baa6935d2)
+
+![welcome page] (https://github.com/Beyondtarun/BeyondCollab/assets/113584909/e83b58ac-7e86-40bc-bd47-d44baa6935d2)
 
